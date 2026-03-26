@@ -141,7 +141,7 @@ function SetupScreen({
         style={styles.setupContainer}
       >
         <View style={styles.logoContainer}>
-          <Text style={styles.logoEmoji}>🐙</Text>
+          <Image source={require('./assets/logo.png')} style={styles.logoImage} />
           <Text style={[styles.title, { color: theme.text }]}>HomelabARR</Text>
           <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
             Mobile Companion
@@ -359,7 +359,7 @@ export default function App() {
 
         <TouchableOpacity onPress={handleRefresh} style={styles.headerTitleContainer}>
           <Text style={[styles.headerTitle, { color: theme.text }]} numberOfLines={1}>
-            🐙 HomelabARR
+            HomelabARR
           </Text>
         </TouchableOpacity>
 
@@ -455,6 +455,12 @@ const styles = StyleSheet.create({
   logoContainer: {
     alignItems: 'center',
     marginBottom: 32,
+  },
+  logoImage: {
+    width: 120,
+    height: 120,
+    borderRadius: 24,
+    marginBottom: 12,
   },
   logoEmoji: {
     fontSize: 64,
