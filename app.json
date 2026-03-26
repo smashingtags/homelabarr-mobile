@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "HomelabARR Mobile",
+    "slug": "homelabarr-mobile",
+    "version": "1.0.0",
+    "orientation": "default",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "scheme": "homelabarr",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.imogenlabs.homelabarr.mobile",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true,
+          "NSAllowsLocalNetworking": true
+        }
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0a0a1a"
+      },
+      "package": "com.imogenlabs.homelabarr.mobile",
+      "permissions": ["android.permission.INTERNET"]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0a0a1a"
+    },
+    "plugins": [
+      "expo-haptics"
+    ]
+  }
+}
