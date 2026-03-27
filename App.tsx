@@ -366,24 +366,24 @@ export default function App() {
     <SafeAreaView style={[styles.container, { backgroundColor: theme.bg }]}>
       <StatusBar style={theme.statusBar} />
 
-      {/* Header bar */}
-      <View style={[styles.header, { backgroundColor: theme.card, borderBottomColor: theme.cardBorder }]}>
+      {/* Minimal header — just back + gear, no title (CE dashboard has its own header) */}
+      <View style={[styles.miniHeader, { backgroundColor: theme.bg, borderBottomColor: theme.cardBorder }]}>
         {canGoBack ? (
-          <TouchableOpacity onPress={() => webViewRef.current?.goBack()} style={styles.headerButton}>
-            <Text style={[styles.headerButtonText, { color: theme.primary }]}>← Back</Text>
+          <TouchableOpacity onPress={() => webViewRef.current?.goBack()} style={styles.miniHeaderButton}>
+            <Text style={{ fontSize: 18, color: theme.primary }}>‹</Text>
           </TouchableOpacity>
         ) : (
-          <View style={styles.headerButton} />
+          <View style={styles.miniHeaderButton} />
         )}
 
-        <TouchableOpacity onPress={handleRefresh} style={styles.headerTitleContainer}>
-          <Text style={[styles.headerTitle, { color: theme.text }]} numberOfLines={1}>
-            HomelabARR
-          </Text>
+        <View style={{ flex: 1 }} />
+
+        <TouchableOpacity onPress={handleRefresh} style={styles.miniHeaderButton}>
+          <Text style={{ fontSize: 14, color: theme.textSecondary }}>↻</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={handleDisconnect} style={styles.headerButton}>
-          <Text style={[styles.headerButtonText, { color: theme.textSecondary }]}>⚙️</Text>
+        <TouchableOpacity onPress={handleDisconnect} style={styles.miniHeaderButton}>
+          <Text style={{ fontSize: 14, color: theme.textSecondary }}>⚙︎</Text>
         </TouchableOpacity>
       </View>
 
@@ -538,31 +538,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
 
-  // Header
-  header: {
+  // Mini header (slim — CE dashboard provides the main header)
+  miniHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    height: 44,
-    paddingHorizontal: 12,
-    borderBottomWidth: 1,
+    height: 28,
+    paddingHorizontal: 8,
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
-  headerButton: {
-    width: 60,
+  miniHeaderButton: {
+    width: 32,
+    height: 28,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  headerButtonText: {
-    fontSize: 16,
-    fontWeight: '500',
-  },
-  headerTitleContainer: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  headerTitle: {
-    fontSize: 17,
-    fontWeight: '600',
   },
 
   // Error state
