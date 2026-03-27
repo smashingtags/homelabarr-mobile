@@ -90,7 +90,7 @@ function SetupScreen({
         'Content-Type': 'application/json',
       };
       if (apiKey.trim()) {
-        headers['X-API-Key'] = apiKey.trim();
+        headers['Authorization'] = `Bearer ${apiKey.trim()}`;
       }
 
       const response = await fetch(`${url}/api/health`, {
@@ -298,8 +298,27 @@ export default function App() {
   // Inject API key header and theme preference
   const injectedJS = `
     (function() {
-      // Store API key for fetch intercepting
+      // Intercept all fetch calls to inject API key
       window.__HOMELABARR_API_KEY = ${JSON.stringify(apiKey)};
+      if (window.__HOMELABARR_API_KEY && !window.__fetchPatched) {
+        const originalFetch = window.fetch;
+        window.fetch = function(url, options = {}) {
+          if (typeof url === 'string' && (url.startsWith('/') || url.startsWith(window.location.origin))) {
+            options.headers = options.headers || {};
+            if (options.headers instanceof Headers) {
+              if (!options.headers.has('Authorization')) {
+                options.headers.set('Authorization', 'Bearer ' + window.__HOMELABARR_API_KEY);
+              }
+            } else {
+              if (!options.headers['Authorization']) {
+                options.headers['Authorization'] = 'Bearer ' + window.__HOMELABARR_API_KEY;
+              }
+            }
+          }
+          return originalFetch.call(this, url, options);
+        };
+        window.__fetchPatched = true;
+      }
       
       // Try to match mobile theme with app theme
       const prefersDark = ${colorScheme === 'dark'};
