@@ -16,7 +16,8 @@
         "NSAppTransportSecurity": {
           "NSAllowsArbitraryLoads": true,
           "NSAllowsLocalNetworking": true
-        }
+        },
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
@@ -25,7 +26,9 @@
         "backgroundColor": "#0a0a1a"
       },
       "package": "com.imogenlabs.homelabarr.mobile",
-      "permissions": ["android.permission.INTERNET"]
+      "permissions": [
+        "android.permission.INTERNET"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -35,6 +38,12 @@
       "resizeMode": "contain",
       "backgroundColor": "#0a0a1a"
     },
-    "plugins": []
+    "plugins": [],
+    "extra": {
+      "eas": {
+        "projectId": "beddfc91-3206-449e-84dd-9461e4661e59"
+      }
+    },
+    "owner": "smashingtags"
   }
 }
