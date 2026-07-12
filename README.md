@@ -71,9 +71,9 @@ The CE dashboard is already fully responsive, so this is intentionally thin: URL
 
 | Repo | Description |
 |------|-------------|
-| [smashingtags/eightly](https://github.com/imogenlabs/eightly) | HomelabARR CE / Eight.ly Container Edition |
-| [smashingtags/eightly-os](https://github.com/imogenlabs/eightly-os) | Eight.ly OS (Professional + OS editions) |
-| [smashingtags/eightly-os-mobile](https://github.com/imogenlabs/eightly-os-mobile) | Eight.ly OS tablet companion app |
+| [imogenlabs/eightly](https://github.com/imogenlabs/eightly) | HomelabARR CE / Eight.ly Container Edition |
+| [imogenlabs/eightly-os](https://github.com/imogenlabs/eightly-os) | Eight.ly OS (Professional + OS editions) |
+| [imogenlabs/eightly-os-mobile](https://github.com/imogenlabs/eightly-os-mobile) | Eight.ly OS tablet companion app |
 
 ---
 
